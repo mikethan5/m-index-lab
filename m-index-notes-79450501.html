@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>资料索引 · 开云信息整理</title>
+  <style>
+    /* 基础重置与字体 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f5faf9;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1b2a2e;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* 卡片网格系统 */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+
+    @media (min-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.6rem 1.4rem;
+      box-shadow: 0 4px 12px rgba(0, 60, 55, 0.06), 0 1px 3px rgba(0, 40, 35, 0.04);
+      border-left: 4px solid #2d9b8e;
+      transition: box-shadow 0.2s ease, transform 0.1s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 20px rgba(35, 120, 110, 0.10);
+      transform: translateY(-2px);
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #0c4a47;
+      letter-spacing: -0.02em;
+      border-bottom: 1px dashed #ccdfdb;
+      padding-bottom: 0.4rem;
+    }
+
+    .card p, .card ul {
+      font-size: 0.95rem;
+      color: #2c3f42;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card ul li {
+      padding: 0.25rem 0 0.25rem 1.2rem;
+      position: relative;
+    }
+
+    .card ul li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #2d9b8e;
+      font-weight: bold;
+    }
+
+    /* 英雄区 */
+    .hero {
+      text-align: left;
+      margin: 1rem 0 0.8rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 650;
+      color: #0c4a47;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+    }
+
+    .hero .sub {
+      font-size: 1.05rem;
+      color: #4d6a6c;
+      margin-top: 0.5rem;
+      max-width: 75%;
+      border-left: 3px solid #2d9b8e;
+      padding-left: 1rem;
+    }
+
+    @media (max-width: 500px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero .sub { max-width: 100%; }
+    }
+
+    /* 特色列表／简介段落 */
+    .intro-text {
+      background: #e6f3f0;
+      padding: 1.5rem 1.8rem;
+      border-radius: 28px;
+      margin: 2rem 0 1.5rem;
+      color: #1f3d3b;
+      font-size: 1rem;
+    }
+
+    .intro-text strong {
+      color: #1b6b62;
+    }
+
+    .action-note {
+      margin: 1.8rem 0 1rem;
+      padding: 1.2rem 1.5rem;
+      background: #ffffffd9;
+      border-radius: 40px;
+      border: 1px solid #bcd5d0;
+      text-align: center;
+      backdrop-filter: blur(2px);
+      font-size: 0.95rem;
+    }
+
+    .action-note a {
+      color: #1a7168;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1.5px dotted #2d9b8e;
+      padding-bottom: 2px;
+    }
+
+    .action-note a:hover {
+      border-bottom-style: solid;
+      color: #0e5950;
+    }
+
+    /* FAQ 摘要 – 折叠样式 */
+    .faq-block {
+      margin: 2.5rem 0 1.8rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #d1e2de;
+      padding: 0.8rem 0;
+    }
+
+    .faq-item:first-of-type {
+      border-top: 1px solid #d1e2de;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #124e48;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: default;
+    }
+
+    .faq-q span {
+      font-size: 1.2rem;
+      color: #2d9b8e;
+    }
+
+    .faq-a {
+      color: #3b595b;
+      font-size: 0.92rem;
+      margin-top: 0.25rem;
+      padding-left: 0.5rem;
+    }
+
+    .footnote {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #738f8b;
+      border-top: 1px solid #cbdad6;
+      padding-top: 1.8rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #d9ece8;
+      color: #135750;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15rem 0.8rem;
+      border-radius: 30px;
+      letter-spacing: 0.3px;
+      margin-right: 0.3rem;
+    }
+
+    /* 响应式微调 */
+    @media (max-width: 480px) {
+      body { padding: 1.2rem 0.8rem; }
+      .card { padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 英雄区：标题与定位 -->
+  <div class="hero">
+    <h1>信息索引 · 开云</h1>
+    <div class="sub">从资料整理切入，把零散的内容节点串联成更清晰的线索</div>
+  </div>
+
+  <!-- 简介段落：偏生活化正式说明 -->
+  <div class="intro-text">
+    <p>平时收集网页、笔记和文档时，常常面对一堆链接无从下手。最近花时间把跟 <strong>开云</strong> 相关的公开资料、功能说明和常见疑问做了归类，一边整理一边也发现不少有意思的细节。这里是一份摘要式的信息卡片，方便快速浏览核心模块。</p>
+  </div>
+
+  <!-- 网格卡片：亮点 + 使用建议等 -->
+  <div class="grid">
+    <div class="card">
+      <h3>📌 资料范围</h3>
+      <ul>
+        <li>基于公开文档与用户指南</li>
+        <li>涵盖基础概念与常见操作</li>
+        <li>不含任何非公开或推广内容</li>
+        <li>更新时间：2025年初</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>⚡ 几个特点</h3>
+      <ul>
+        <li>表述尽量平实，减少术语堆砌</li>
+        <li>每个模块保持独立可读</li>
+        <li>结构偏向“查询”而非“教程”</li>
+        <li>移动端浏览友好，卡片层次清晰</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🧩 使用建议</h3>
+      <p>可以把它当作一个轻量的参考入口：想快速了解某个功能点，或者回忆之前看过的说明，先在这里定位，再决定是否深入原始资料。不替代官方文档，但能节省一点检索时间。</p>
+    </div>
+
+    <div class="card">
+      <h3>🔐 可信但克制</h3>
+      <p>所有信息都来自可验证的公开渠道。页面本身不收集任何数据，也不嵌入追踪脚本。<br>
+      <span class="badge">仅索引</span><span class="badge">非商业</span></p>
+    </div>
+  </div>
+
+  <!-- 自然包含链接的句子（严格显示「开云」） -->
+  <div class="action-note">
+    📎 如果需要查看完整的原始信息源，可以直接参考 <a href="https://m-index-ky.com">开云</a> 上的内容汇总。那里保持了较新的版本说明和模块分类。
+  </div>
+
+  <!-- FAQ 摘要（简洁克制） -->
+  <div class="faq-block">
+    <div class="faq-item">
+      <div class="faq-q">
+        这些资料适合什么人？ <span>﹀</span>
+      </div>
+      <div class="faq-a">
+        普通用户或者刚接触相关内容的人，想先了解大致框架和常用概念，可以快速浏览卡片。已经熟悉的人也可以拿来当备忘。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        会不会包含主观推荐？ <span>﹀</span>
+      </div>
+      <div class="faq-a">
+        不会。这里只是整理和转述公开资料，没有打分、排行榜或诱导性表述。你可以根据自己的判断决定是否进一步阅读。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        页面以后会更新吗？ <span>﹀</span>
+      </div>
+      <div class="faq-a">
+        可能根据公开信息的变化做小幅调整。不承诺固定频率，也不积累版本历史。保持轻量与简洁。
+      </div>
+    </div>
+  </div>
+
+  <!-- 结尾 -->
+  <div class="footnote">
+    页面内容仅为个人资料整理，不构成任何建议或保证。<br>
+    所有商标及引用内容归属各自权利人。
+  </div>
+
+</div>
+</body>
+</html>
