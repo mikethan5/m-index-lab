@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>知识库 · 爱游戏介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fafbfc;
+      color: #1e2a3a;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.7;
+      padding: 2.5rem 1.2rem;
+    }
+
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.02), 0 1px 6px rgba(0,0,0,0.02);
+      padding: 3.2rem 2.2rem;
+    }
+
+    @media (max-width: 500px) {
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+      .page {
+        padding: 2rem 1.4rem;
+        border-radius: 18px;
+      }
+    }
+
+    /* 标题层级 —— 极简衬线风格 */
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.2em;
+      color: #0b1a2b;
+      border-left: 5px solid #3b6ea5;
+      padding-left: 1rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-top: 2.6rem;
+      margin-bottom: 0.9rem;
+      color: #1c3046;
+      border-bottom: 1px solid #e6edf4;
+      padding-bottom: 0.3rem;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-top: 1.8rem;
+      margin-bottom: 0.3rem;
+      color: #2b4057;
+    }
+
+    p, li {
+      color: #2c3f55;
+      margin-bottom: 1.1rem;
+    }
+
+    /* 卡片区 —— 目录感网格 */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1.4rem;
+      margin: 1.8rem 0 2rem;
+    }
+
+    .info-card {
+      background: #f3f7fc;
+      border-radius: 20px;
+      padding: 1.5rem 1.2rem;
+      transition: background 0.15s;
+    }
+
+    .info-card:hover {
+      background: #e9f0f8;
+    }
+
+    .info-card .card-label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #607b96;
+      margin-bottom: 0.6rem;
+    }
+
+    .info-card p {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 0.9rem;
+      margin: 1.4rem 0 1rem;
+    }
+
+    .tag {
+      background: #e5ecf3;
+      border-radius: 30px;
+      padding: 0.15rem 1rem;
+      font-size: 0.9rem;
+      color: #1f3b57;
+    }
+
+    .faq-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #eef3f9;
+    }
+
+    .faq-question {
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+      color: #1a314b;
+    }
+
+    .faq-answer {
+      margin-left: 0.6rem;
+      font-size: 0.95rem;
+      color: #41556d;
+    }
+
+    /* 提示区块 */
+    .notice-box {
+      background: #f1f6fe;
+      border-radius: 24px;
+      padding: 1.6rem 2rem;
+      margin: 2.4rem 0 2rem;
+      border-left: 6px solid #3b6ea5;
+    }
+
+    .notice-box p {
+      margin-bottom: 0.4rem;
+    }
+
+    a {
+      color: #2563a8;
+      text-decoration: none;
+      border-bottom: 1px dotted #b4cce0;
+      transition: border 0.1s, color 0.1s;
+    }
+
+    a:hover {
+      color: #0f3b6b;
+      border-bottom: 1px solid #0f3b6b;
+    }
+
+    .quiet-link {
+      color: #2a4a6e;
+      border-bottom: none;
+      font-weight: 450;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e5eef6;
+      margin: 2.8rem 0 1.2rem;
+    }
+
+    .footer-note {
+      font-size: 0.9rem;
+      color: #5f7691;
+      text-align: center;
+      margin-top: 2.8rem;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <h1>爱游戏 · 知识查阅</h1>
+  <p style="font-size:1.05rem; margin-top:-0.2rem;">面向日常查询、对照与延伸阅读的信息速览。</p>
+
+  <!-- 目录感卡片区块 -->
+  <div class="cards-grid">
+    <div class="info-card">
+      <div class="card-label">🔍 常用查询</div>
+      <p>平台基础、账号关联、奖励核对——<br>从常见问题到操作说明。</p>
+    </div>
+    <div class="info-card">
+      <div class="card-label">📘 术语对照</div>
+      <p>活动名称、积分类型、兑换比率，<br>保持信息对称。</p>
+    </div>
+    <div class="info-card">
+      <div class="card-label">🧩 延伸阅读</div>
+      <p>版本动态、活动背景、规则解读，<br>辅助判断与比较。</p>
+    </div>
+    <div class="info-card">
+      <div class="card-label">⚙️ 功能索引</div>
+      <p>菜单路径、设置入口、客服通道，<br>快速定位所需页面。</p>
+    </div>
+  </div>
+
+  <!-- 说明区：介绍与定位 -->
+  <h2>平台记录与查询背景</h2>
+  <p>在浏览活动、奖励以及对应规则时，一份结构化的参考信息能够减少反复翻找的时间。<strong>爱游戏</strong> 将日常涉及的板块进行条目整理，提供一致的信息锚点。无论是核对条款还是了解近期调整，建议先查阅对应分类下的说明。</p>
+
+  <p>页面左侧卡片可作为快速索引：<a href="https://lineofficial-igame.com" class="quiet-link">爱游戏</a> 的知识条目会随运营节奏更新，保持与官方公告同步。对照使用时，以实际页面展示为最终依据。</p>
+
+  <h2>信息区分与提示</h2>
+  <div class="tag-list">
+    <span class="tag">奖励规则</span>
+    <span class="tag">活动周期</span>
+    <span class="tag">账号绑定</span>
+    <span class="tag">点数兑换</span>
+    <span class="tag">设备支持</span>
+  </div>
+  <p>上列标签覆盖了用户经常咨询的维度。每个标签背后都有关联的条目与常见场景。例如“奖励规则”下会说明领取条件、发放时间以及重叠活动的处理方式。</p>
+
+  <p>对不熟悉的术语或流程，可优先查看延伸阅读部分，里面会提供背景说明与版本变更记录。<a href="https://lineofficial-igame.com">爱游戏</a> 的知识库也包含多期活动拆解，供不同阶段的用户按需查阅。</p>
+
+  <!-- 提示区 -->
+  <div class="notice-box">
+    <p><strong>📌 查阅提示</strong></p>
+    <p>· 每次活动规则以最新公告为准，历史条目仅供参考。</p>
+    <p>· 如遇条目与线上页面不一致，请以 <a href="https://lineofficial-igame.com">爱游戏</a> 实际显示内容为准。</p>
+    <p>· 建议使用常用浏览器访问，部分功能需保持登录状态。</p>
+  </div>
+
+  <!-- 相关信息区 + FAQ摘要 -->
+  <h2>常见问题摘要</h2>
+  <div class="faq-item">
+    <div class="faq-question">问：活动点数何时到账？</div>
+    <div class="faq-answer">通常满足条件后 24 小时内发放，个别活动以规则标注为准。可至记录页面查看流水。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">问：同一期活动能叠加领取吗？</div>
+    <div class="faq-answer">视活动类型而定，部分可叠加、部分互斥。页面会注明“可与其他活动共享”或反之，建议留意细则。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">问：账号绑定失败怎么办？</div>
+    <div class="faq-answer">检查平台是否一致，或尝试清除缓存后重新登录。也可通过客服渠道提交截图核实。</div>
+  </div>
+
+  <hr>
+  <div class="footer-note">
+    本页为知识库入口 · 内容基于公开信息整理 · 实时更新请直接访问 <a href="https://lineofficial-igame.com">爱游戏</a>
+  </div>
+</div>
+</body>
+</html>
